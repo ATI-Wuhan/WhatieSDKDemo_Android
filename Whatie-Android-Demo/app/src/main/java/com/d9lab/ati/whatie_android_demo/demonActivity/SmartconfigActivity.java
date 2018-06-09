@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,13 +52,27 @@ public class SmartconfigActivity extends BaseActivity {
     TextView tvSsid;
     @Bind(R.id.et_pwd)
     EditText etPwd;
-    @Bind(R.id.button_config)
-    Button buttonConfig;
+    @Bind(R.id.tv_config)
+    TextView buttonConfig;
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
+    @Bind(R.id.iv_title_left)
+    ImageView ivTitleLeft;
+    @Bind(R.id.ll_title_left)
+    LinearLayout llTitleLeft;
+    @Bind(R.id.iv_title_right)
+    ImageView ivTitleRight;
+    @Bind(R.id.tv_title_right)
+    TextView tvTitleRight;
+    @Bind(R.id.ll_title_right)
+    LinearLayout llTitleRight;
 
     private EspWifiAdminSimple mWifiAdmin;
     private IEsptouchTask mEsptouchTask;
     private ProgressDialog mProgressDialog;
     private final Object mLock = new Object();
+    private int productType;
+
 
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() {
@@ -78,7 +94,7 @@ public class SmartconfigActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        setTitle("SmartConfig");
+        tvTitle.setText("Smart Config");
         mWifiAdmin = new EspWifiAdminSimple(this);
 
     }
@@ -87,6 +103,7 @@ public class SmartconfigActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(mContext);
+//        productType=getIntent().getIntExtra("productType",-1);
     }
 
     @Override
@@ -111,7 +128,12 @@ public class SmartconfigActivity extends BaseActivity {
 
     @Override
     protected void initEvents() {
-
+        ivTitleLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -119,7 +141,7 @@ public class SmartconfigActivity extends BaseActivity {
 
     }
 
-    @OnClick(R.id.button_config)
+    @OnClick(R.id.tv_config)
     public void onViewClicked() {
         mProgressDialog = new ProgressDialog(mContext);
         mProgressDialog.setMessage("EHome is configuring, please wait for a moment...");
@@ -148,15 +170,15 @@ public class SmartconfigActivity extends BaseActivity {
                 .setEnabled(false);
         mProgressDialog.setCancelable(false);
 
-        EHomeInterface.getINSTANCE().getNetToken(mContext, Constant.ACCESS_ID, Constant.ACCESS_KEY, new BaseStringCallback() {
+        EHomeInterface.getINSTANCE().getNetToken(mContext, new BaseStringCallback() {
             @Override
             public void onSuccess(Response<BaseModelResponse<String>> response) {
-                if (response.body().isSuccess()){
+                if (response.body().isSuccess()) {
                     String apSsid = mWifiAdmin.getWifiConnectedSsid();
                     String apPassword = etPwd.getText().toString().trim();
                     String apBssid = mWifiAdmin.getWifiConnectedBssid();
-                    new WhatieAsyncTask().execute(apSsid, apBssid, response.body().getValue()+ apPassword , "1");
-                }else {
+                    new WhatieAsyncTask().execute(apSsid, apBssid, response.body().getValue() + apPassword, "1");
+                } else {
                     mProgressDialog.setMessage("Config failed.");
                     mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                             .setEnabled(true);
@@ -236,14 +258,14 @@ public class SmartconfigActivity extends BaseActivity {
         mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EHomeInterface.getINSTANCE().getStarted(mContext, event.getDevId(), event.getName(), Constant.ACCESS_ID, Constant.ACCESS_KEY,
+                EHomeInterface.getINSTANCE().getStarted(mContext, event.getDevId(), event.getName(),
                         new BaseCallback() {
                             @Override
                             public void onSuccess(Response<BaseResponse> response) {
-                                if(response.body().isSuccess()){
+                                if (response.body().isSuccess()) {
                                     Toast.makeText(mContext, "Device initialize success.", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(SmartconfigActivity.this, DeviceListActivity.class));
-                                }else {
+                                    startActivity(new Intent(SmartconfigActivity.this, MainActivity.class));
+                                } else {
                                     Toast.makeText(mContext, "Device initialize fail.", Toast.LENGTH_SHORT).show();
                                 }
                                 mProgressDialog.dismiss();

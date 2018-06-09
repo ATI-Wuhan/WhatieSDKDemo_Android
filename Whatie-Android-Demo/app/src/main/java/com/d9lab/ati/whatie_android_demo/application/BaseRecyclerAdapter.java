@@ -91,11 +91,11 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     abstract public void bindData(RecyclerViewHolder holder, int position, T item);
 
     public interface OnItemClickListener {
-        public void onItemClick(View itemView, int pos);
+        void onItemClick(View itemView, int pos);
     }
 
     public interface OnItemLongClickListener {
-        public void onItemLongClick(View itemView, int pos);
+        void onItemLongClick(View itemView, int pos);
     }
 
     @Override

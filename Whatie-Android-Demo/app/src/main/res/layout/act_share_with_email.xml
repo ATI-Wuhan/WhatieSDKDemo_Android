@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_title"/>
+
+    <EditText
+        android:id="@+id/et_shared_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginTop="@dimen/padding_13dp"
+        android:layout_gravity="center"
+        android:paddingLeft="@dimen/padding_15dp"
+        android:background="@color/white"
+        android:hint="Please key friend's email"
+        android:textSize="@dimen/text_17sp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_20dp">
+        <TextView
+            android:id="@+id/tv_share_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_50dp"
+            style="@style/ConfirmButton"
+            android:text="@string/device_name_change"/>
+    </RelativeLayout>
+
+</LinearLayout>

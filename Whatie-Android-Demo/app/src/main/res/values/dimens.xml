@@ -5,4 +5,238 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+
+    <!--标题和底部导航栏-->
+    <dimen name="title_height">44dp</dimen>
+    <dimen name="title_image_scale">36dp</dimen>
+    <dimen name="title_text_scale">12sp</dimen>
+    <dimen name="navigation_height">50dp</dimen>
+    <dimen name="navigation_image_scale">36dp</dimen>
+    <dimen name="navigation_text_scale">12sp</dimen>
+
+    <!--登录-->
+    <dimen name="sign_close_scale">23dp</dimen>
+    <dimen name="sign_cancel_left">20dp</dimen>
+    <dimen name="sign_cancel_top">29dp</dimen>
+    <dimen name="sign_label_top">41dp</dimen>
+    <dimen name="sign_tip_width">337dp</dimen>
+    <dimen name="sign_email_top">18dp</dimen>
+    <dimen name="sign_email_height">48dp</dimen>
+    <dimen name="sign_email_mtop">9dp</dimen>
+    <dimen name="sign_password_mtop">20dp</dimen>
+    <dimen name="sign_forget_mtop">13dp</dimen>
+    <dimen name="sign_in">50dp</dimen>
+    <dimen name="sign_in_top">36dp</dimen>
+    <dimen name="sign_up_top">135dp</dimen>
+    <dimen name="sign_up_height">23dp</dimen>
+
+    <!--注册-->
+    <dimen name="sign_back_scale">80dp</dimen>
+    <dimen name="sign_up_mtop">41dp</dimen>
+    <dimen name="sign_up_pin">243dp</dimen>
+    <dimen name="sign_send_top">4dp</dimen>
+    <dimen name="sign_send_right">5dp</dimen>
+    <dimen name="sign_send_width">89dp</dimen>
+    <dimen name="sign_send_height">40dp</dimen>
+    <dimen name="sign_btn_height">50dp</dimen>
+    <dimen name="sign_btn_mtop">72dp</dimen>
+
+    <!--条款-->
+    <dimen name="term_width">351dp</dimen>
+
+    <!--设置密码-->
+    <dimen name="set_account_top">29dp</dimen>
+    <dimen name="set_password_top">21dp</dimen>
+    <dimen name="set_get_started">56dp</dimen>
+
+    <!--首页（无设备）-->
+    <dimen name="no_device_title_scale">24sp</dimen>
+    <dimen name="no_device_describe_scale">12sp</dimen>
+    <dimen name="no_device_image_height">255dp</dimen>
+    <dimen name="no_device_image_width">375dp</dimen>
+    <dimen name="no_device_button_height">44dp</dimen>
+    <dimen name="no_device_button_width">319dp</dimen>
+    <dimen name="no_device_title_height">45dp</dimen>
+
+    <!--首页（有设备）-->
+    <dimen name="device_item_height">124dp</dimen>
+    <dimen name="device_item_icon_scale">57dp</dimen>
+    <dimen name="device_item_padding_left_right">10dp</dimen>
+    <dimen name="device_item_padding_top_bottom">20dp</dimen>
+    <dimen name="device_item_switch_height">37dp</dimen>
+    <dimen name="device_item_switch_width">60dp</dimen>
+
+    <!--产品类型列表-->
+    <dimen name="product_type_item_height">140dp</dimen>
+    <dimen name="product_type_item_icon_scale">70dp</dimen>
+    <dimen name="product_type_item_name_height">33dp</dimen>
+    <dimen name="product_type_item_padding">8dp</dimen>
+
+    <!--添加设备-->
+    <dimen name="confirm_home_wifi_dialog_height">165dp</dimen>
+    <dimen name="confirm_home_wifi_dialog_width">270dp</dimen>
+    <dimen name="confirm_home_wifi_title_height">27dp</dimen>
+    <dimen name="current_wifi_height">20dp</dimen>
+    <dimen name="input_password_height">25dp</dimen>
+    <dimen name="confirm_home_wifi_button_height">45dp</dimen>
+    <dimen name="device_started_belong_to_height">76dp</dimen>
+
+    <!--添加设备进度条页面-->
+    <dimen name="progressbar_scale">146dp</dimen>
+    <dimen name="progressbar_width">5dp</dimen>
+    <dimen name="progressbar_margin_top">80dp</dimen>
+    <dimen name="progressbar_margin_bottom">20dp</dimen>
+    <dimen name="adding_device_please_wait_height">50dp</dimen>
+    <dimen name="adding_progress_step_height">40dp</dimen>
+    <dimen name="adding_progress_icon_scale">24dp</dimen>
+
+    <!--get started-->
+    <dimen name="rl_height">45dp</dimen>
+
+    <!--设备控制页面-->
+    <dimen name="icon_and_name_layout_height">183dp</dimen>
+    <dimen name="device_detail_icon_scale">45dp</dimen>
+    <dimen name="device_detail_icon_scale_small">35dp</dimen>
+    <dimen name="device_shared_qrcode_scale">200dp</dimen>
+    <dimen name="device_switch_icon_scale">173dp</dimen>
+    <dimen name="device_detail_up_height">372dp</dimen>
+    <dimen name="device_detail_center_height">99dp</dimen>
+    <dimen name="device_detail_bottom_height">96dp</dimen>
+    <dimen name="device_detail_button_height">44dp</dimen>
+    <dimen name="device_detail_button_width">319dp</dimen>
+
+
+    <!--二维码展示页面-->
+    <dimen name="margin_bg_to_title">82dp</dimen>
+    <dimen name="margin_qrcode_to_bgtop">25dp</dimen>
+    <dimen name="width_qrcode">261dp</dimen>
+    <dimen name="height_qrcode">261dp</dimen>
+    <dimen name="width_qrcode_bg">283dp</dimen>
+    <dimen name="height_qrcode_bg">379dp</dimen>
+
+    <!--个人中心-->
+    <dimen name="profile_bg_height">158dp</dimen>
+    <dimen name="profile_avatar_scale">60dp</dimen>
+    <dimen name="profile_name_scale">16sp</dimen>
+    <dimen name="padding_below_profile">25dp</dimen>
+    <dimen name="profile_menu_height">51dp</dimen>
+    <dimen name="profile_menu_padding">5dp</dimen>
+    <dimen name="profile_menu_image_scale">24dp</dimen>
+    <dimen name="profile_menu_text_scale">16sp</dimen>
+
+    <!--帮助和反馈-->
+    <dimen name="text_height">41dp</dimen>
+    <dimen name="text_width">352dp</dimen>
+    <dimen name="frame_margin1">15dp</dimen>
+    <dimen name="radius">8dp</dimen>
+    <dimen name="frame_width">340dp</dimen>
+    <dimen name="frame_height">157dp</dimen>
+    <dimen name="inner_frame_width">317dp</dimen>
+    <dimen name="inner_frame_height1">28dp</dimen>
+    <dimen name="inner_frame_height2">101dp</dimen>
+    <dimen name="inner_margin1">14dp</dimen>
+    <dimen name="inner_margin2">13dp</dimen>
+    <dimen name="frame_margin2">47dp</dimen>
+    <dimen name="submit_btn_width">330dp</dimen>
+    <dimen name="submit_btn_height">50dp</dimen>
+    <dimen name="submit_btn_margin">19dp</dimen>
+    <dimen name="frame_top">6dp</dimen>
+
+    <!--反馈-->
+    <dimen name="feed_left">12dp</dimen>
+    <dimen name="feed_top">8dp</dimen>
+    <dimen name="parent_height">146dp</dimen>
+    <dimen name="screenshot_width">182dp</dimen>
+    <dimen name="screenshot_height">23dp</dimen>
+    <dimen name="photo">100dp</dimen>
+    <dimen name="add_photo">50dp</dimen>
+    <dimen name="add_photo_height">97dp</dimen>
+    <dimen name="photo_top">27dp</dimen>
+    <dimen name="tip_left">8dp</dimen>
+    <dimen name="tip_top">30dp</dimen>
+    <dimen name="tip_width">241dp</dimen>
+    <dimen name="tip_height">23dp</dimen>
+
+
+    <!--确定键-->
+    <dimen name="confirm_button_height">50dp</dimen>
+
+    <!--关于-->
+    <dimen name="act_about_title">7dp</dimen>
+    <dimen name="act_about_background_height">60dp</dimen>
+    <dimen name="act_about_word_height">70dp</dimen>
+    <dimen name="act_about_word_below_height">11dp</dimen>
+    <dimen name="act_about_arrow">63dp</dimen>
+    <dimen name="act_about_right_reserved_height">170dp</dimen>
+
+    <!--个人中心-->
+    <dimen name="act_personal_picture_height">30dp</dimen>
+    <dimen name="act_personal_picture_left">17dp</dimen>
+    <dimen name="act_personal_id">20sp</dimen>
+    <dimen name="act_personal_id_height">125dp</dimen>
+    <dimen name="act_personal_email_height">154dp</dimen>
+    <dimen name="act_personal_name_height">21dp</dimen>
+    <dimen name="act_personal_Email_height">11dp</dimen>
+    <dimen name="act_personal_logout_background_height">49dp</dimen>
+    <dimen name="act_personal_logout_height">58dp</dimen>
+
+    <!--修改用户名-->
+    <dimen name="act_change_name_edit_height">48dp</dimen>
+    <dimen name="act_change_name_edit_dimen">60dp</dimen>
+    <dimen name="act_change_name_button_height">50dp</dimen>
+
+    <!--修改密码-->
+    <dimen name="change_pwd_old_margin_top">44dp</dimen>
+
+
+    <!--边距-->
+    <dimen name="padding_1dp">1dp</dimen>
+    <dimen name="padding_2dp">2dp</dimen>
+    <dimen name="padding_3dp">3dp</dimen>
+    <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="padding_5dp">5dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="padding_9dp">9dp</dimen>
+    <dimen name="padding_10dp">10dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_13dp">13dp</dimen>
+    <dimen name="padding_14dp">14dp</dimen>
+    <dimen name="padding_15dp">15dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_17dp">17dp</dimen>
+    <dimen name="padding_18dp">18dp</dimen>
+    <dimen name="padding_19dp">19dp</dimen>
+
+    <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="padding_23dp">23dp</dimen>
+    <dimen name="padding_24dp">24dp</dimen>
+    <dimen name="padding_25dp">25dp</dimen>
+    <dimen name="padding_30dp">30dp</dimen>
+    <dimen name="padding_32dp">32dp</dimen>
+    <dimen name="padding_35dp">35dp</dimen>
+    <dimen name="padding_44dp">44dp</dimen>
+    <dimen name="padding_45dp">45dp</dimen>
+    <dimen name="padding_50dp">50dp</dimen>
+    <dimen name="padding_52dp">52dp</dimen>
+    <dimen name="padding_66dp">66dp</dimen>
+    <dimen name="padding_75dp">75dp</dimen>
+
+    <!--文字-->
+    <dimen name="text_10sp">10sp</dimen>
+    <dimen name="text_12sp">12sp</dimen>
+    <dimen name="text_14sp">14sp</dimen>
+    <dimen name="text_16sp">16sp</dimen>
+    <dimen name="text_17sp">17sp</dimen>
+    <dimen name="text_18sp">18sp</dimen>
+    <dimen name="text_20sp">20sp</dimen>
+    <dimen name="text_24sp">24sp</dimen>
+    <dimen name="text_28sp">28sp</dimen>
+    <dimen name="text_32sp">32sp</dimen>
+    <dimen name="text_48sp">48sp</dimen>
+
+    <!--行距-->
+    <dimen name="line_spacing">10sp</dimen>
+
+
 </resources>

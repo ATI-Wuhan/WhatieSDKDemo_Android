@@ -1,7 +1,10 @@
 package com.d9lab.ati.whatie_android_demo.demonActivity;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.d9lab.ati.whatie_android_demo.R;
@@ -19,14 +22,16 @@ import butterknife.OnClick;
  */
 
 public class ChangePwdActivity extends BaseActivity {
-    @Bind(R.id.et_email)
+    @Bind(R.id.et_recover_password_email)
     EditText etEmail;
-    @Bind(R.id.et_old_pwd)
+    @Bind(R.id.et_change_pwd_old)
     EditText etOldPwd;
-    @Bind(R.id.et_new_pwd)
+    @Bind(R.id.et_change_pwd_new)
     EditText etNewPwd;
-    @Bind(R.id.button_confirm_change_pwd)
-    Button buttonConfirmChangePwd;
+    @Bind(R.id.tv_recover_password)
+    TextView buttonConfirmChangePwd;
+    @Bind(R.id.iv_recover_pwd_back)
+    ImageView back;
 
     @Override
     protected int getContentViewId() {
@@ -40,7 +45,12 @@ public class ChangePwdActivity extends BaseActivity {
 
     @Override
     protected void initEvents() {
-
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -48,7 +58,7 @@ public class ChangePwdActivity extends BaseActivity {
 
     }
 
-    @OnClick(R.id.button_confirm_change_pwd)
+    @OnClick(R.id.tv_recover_password)
     public void onViewClicked() {
         if(etEmail.getText().toString().trim().equals("")
                 ||etOldPwd.getText().toString().trim().equals("")
@@ -56,11 +66,9 @@ public class ChangePwdActivity extends BaseActivity {
             Toast.makeText(mContext, "email or password can not be empty.", Toast.LENGTH_SHORT).show();
         } else {
             buttonConfirmChangePwd.setClickable(false);
-            EHomeInterface.getINSTANCE().changePwd(mContext, etEmail.getText().toString().trim(),
+            EHomeInterface.getINSTANCE().changePassword(mContext, etEmail.getText().toString().trim(),
                     etOldPwd.getText().toString().trim(),
                     etNewPwd.getText().toString().trim(),
-                    Constant.ACCESS_ID,
-                    Constant.ACCESS_KEY,
                     new BaseCallback() {
                         @Override
                         public void onSuccess(Response<BaseResponse> response) {

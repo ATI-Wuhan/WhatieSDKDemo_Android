@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.d9lab.ati.whatie_android_demo.R;
@@ -29,7 +32,18 @@ public class ProductionListActivity extends BaseActivity {
     private static final String TAG = "ProductionListActivity";
     @Bind(R.id.rv_product_list)
     RecyclerView rvProductList;
-
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
+    @Bind(R.id.iv_title_left)
+    ImageView ivTitleLeft;
+    @Bind(R.id.ll_title_left)
+    LinearLayout llTitleLeft;
+    @Bind(R.id.iv_title_right)
+    ImageView ivTitleRight;
+    @Bind(R.id.tv_title_right)
+    TextView tvTitleRight;
+    @Bind(R.id.ll_title_right)
+    LinearLayout llTitleRight;
     private BaseRecyclerAdapter<Product> mAdapter;
     private List<Product> mProductions = new ArrayList<>();
 
@@ -40,10 +54,10 @@ public class ProductionListActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        setTitle("Production List");
+        tvTitle.setText("Production List");
         LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
         rvProductList.setLayoutManager(layoutManager);
-        EHomeInterface.getINSTANCE().getProductTypePage(mContext, 1, 10, Constant.ACCESS_ID, Constant.ACCESS_KEY,new ProductionCallback() {
+        EHomeInterface.getINSTANCE().getProductTypePage(mContext, 1, 10, new ProductionCallback() {
             @Override
             public void onSuccess(Response<BaseListResponse<Product>> response) {
                 if(response.body().isSuccess()){
@@ -65,6 +79,12 @@ public class ProductionListActivity extends BaseActivity {
     @Override
     protected void initEvents() {
 
+        ivTitleLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -76,12 +96,14 @@ public class ProductionListActivity extends BaseActivity {
             }
 
             @Override
-            public void bindData(RecyclerViewHolder holder, int position, Product item) {
+            public void bindData(RecyclerViewHolder holder, int position, final Product item) {
                 holder.setText(R.id.tv_product_name, item.getName());
                 holder.setClickListener(R.id.rl_product_item, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(ProductionListActivity.this, SmartconfigActivity.class));
+                        Intent intent=new Intent(ProductionListActivity.this, SmartconfigActivity.class);
+//                        intent.putExtra("productType",item.getProductType());
+                        startActivity(intent);
                     }
                 });
             }

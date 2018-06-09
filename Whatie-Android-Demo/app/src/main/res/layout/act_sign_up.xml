@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding_20dp"
+        android:paddingRight="@dimen/padding_20dp"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/iv_signUp_back"
+            android:layout_width="@dimen/sign_close_scale"
+            android:layout_height="@dimen/sign_close_scale"
+            android:layout_marginTop="@dimen/sign_cancel_top"
+            android:src="@drawable/ic_close"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_label"
+            android:layout_marginTop="@dimen/sign_up_mtop"
+            android:layout_gravity="center"
+            android:textSize="@dimen/text_28sp"
+            android:textColor="@color/word_black" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/sign_up_tip_string"
+            android:textColor="@color/word_black"
+            android:textSize="@dimen/text_14sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/sign_email_top"
+            android:text="@string/sign_email"
+            android:textColor="@color/feedback"/>
+        <EditText
+            android:id="@+id/et_signUp_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sign_email_height"
+            android:layout_marginTop="@dimen/sign_email_mtop"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_sign_input"
+            android:hint="@string/sign_ev_email"
+            android:textSize="@dimen/text_14sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/sign_password_mtop"
+            android:text="@string/sign_password"
+            android:textColor="@color/feedback" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/sign_email_height"
+            android:layout_marginTop="@dimen/sign_email_mtop"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_sign_input">
+
+
+            <EditText
+                android:id="@+id/et_signUp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sign_email_height"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center"
+                android:background="@drawable/shape_sign_input"
+                android:hint="@string/sign_up_password"
+                android:inputType="textPassword"
+                android:textSize="@dimen/text_14sp" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_signUp_signUp"
+            android:layout_marginTop="@dimen/sign_btn_mtop"
+            style="@style/ConfirmButton"
+            android:text="@string/sign_up_btn"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/padding_20dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center">-->
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/sign_up_terms"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tv_signUp_terms"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/sign_terms"-->
+                <!--android:textColor="@drawable/selector_blue_text"-->
+                <!--android:textSize="@dimen/text_14sp"/>-->
+        <!--</LinearLayout>-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_signUp_conditions"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/sign_up_conditions"-->
+            <!--android:textColor="@drawable/selector_blue_text"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textSize="@dimen/text_14sp"/>-->
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>

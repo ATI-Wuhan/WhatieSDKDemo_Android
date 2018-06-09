@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Execute Time"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:gravity="center_vertical"
+                android:background="#ffffff"
+                android:textColor="@color/black"
+                android:text="00:00"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Repeat Day"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/tv_repeat_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:gravity="center_vertical"
+                android:background="#ffffff"
+                android:textColor="@color/black"
+                android:text="Only once"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="Device Execute State"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/tv_device_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:gravity="center_vertical"
+                android:background="#ffffff"
+                android:textColor="@color/black"
+                android:text="ON"/>
+
+            <Button
+                android:id="@+id/bt_timer_save"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                style="@style/ConfirmButton"
+                android:text="Save Timer"/>
+
+            <Button
+                android:id="@+id/bt_timer_delete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                style="@style/ConfirmButton"
+                android:text="Delete Timer"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -4,8 +4,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/main_theme_blue</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -13,8 +14,101 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="LoginTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+    </style>
+
+    <style name="ConfirmButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/confirm_button_height</item>
+        <item name="android:background">@drawable/shape_confirm_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/selector_confirm_button</item>
+        <item name="android:textSize">@dimen/text_18sp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="UnclickableButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/confirm_button_height</item>
+        <item name="android:background">@drawable/shape_unclickable_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/selector_confirm_button</item>
+        <item name="android:textSize">@dimen/text_18sp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="ChosenBackgroud">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="GreyLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/padding_1dp</item>
+        <item name="android:background">@color/background</item>
+    </style>
+
+    <style name="SettingArrow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/ic_right</item>
+    </style>
+
+    <style name="DownloadDialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+
+    <style name="DownloadDialogAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="LoadingDialogStyle" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item><!--设置dialog的背景-->
+        <item name="android:windowFrame">@null</item><!--Dialog的windowFrame框为无-->
+        <item name="android:windowNoTitle">true</item><!--是否显示title-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item><!--是否半透明-->
+        <item name="android:windowContentOverlay">@null</item><!--是否半透明-->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item><!-- 对话框是否有遮盖 -->
+        <item name="android:backgroundDimEnabled">false</item><!--背景是否模糊显示-->
+        <item name="android:backgroundDimAmount">0.6</item><!--背景的灰度-->
+    </style>
+
+    <style name="PopupWindowAnimationFromBottom">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
+
+    <style name="PopupWindowAnimationFromTop">
+        <item name="android:windowEnterAnimation">@anim/push_top_in</item>
+        <item name="android:windowExitAnimation">@anim/push_top_out</item>
+    </style>
+
+    <style name="PopupWindowAnimationFade">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="PersonalBackground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">213dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
 
 </resources>

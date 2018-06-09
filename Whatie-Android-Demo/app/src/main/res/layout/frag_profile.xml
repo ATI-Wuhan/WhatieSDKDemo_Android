@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_bg_height"
+        android:background="@drawable/ic_profile_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+
+
+        <ImageView
+            android:id="@+id/iv_profile_photo"
+            android:layout_width="59dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="34dp"
+            android:src="@drawable/ic_avatar" />
+
+
+        <TextView
+            android:id="@+id/tv_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:gravity="center"
+            android:text="@string/profile_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/profile_name_scale" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_profile_change_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginBottom="1dp"
+
+        android:background="@drawable/selector_rl_item">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="Modify Nickname"
+            android:textColor="@color/black"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_profile_update_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginBottom="1dp"
+
+        android:background="@drawable/selector_rl_item">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="@string/profile_update_pwd"
+            android:textColor="@color/black"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_profile_menu_experience_center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:padding="@dimen/profile_menu_padding"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_profile_menu_experience_center_icon"
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:src="@drawable/ic_experience" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/iv_profile_menu_experience_center_icon"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="@string/profile_menu_virtual_center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_profile_menu_receive_shared_device"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/selector_rl_item">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="@string/receive_shared_device"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_profile_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginBottom="1dp"
+        android:visibility="gone"
+        android:background="@drawable/selector_rl_item">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="@string/profile_feedback"
+            android:textColor="@color/black"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_profile_menu_experience"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/selector_rl_item"
+        android:padding="@dimen/profile_menu_padding"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_profile_menu_help_feedback_icon"
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/padding_10dp"
+            android:src="@drawable/ic_help" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/iv_profile_menu_help_feedback_icon"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="@string/profile_menu_virtual_center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_profile_log_out"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/selector_rl_item">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="@string/profile_log_out"
+            android:textColor="@color/black"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_profile_menu_settings"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_menu_height"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/selector_rl_item"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_profile_menu_settings_icon"
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/act_personal_picture_left"
+            android:src="@drawable/ic_settings" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/iv_profile_menu_settings_icon"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:text="@string/profile_menu_setting"
+            android:textColor="@color/black"
+            android:textSize="@dimen/profile_menu_text_scale" />
+
+        <ImageView
+            android:layout_width="@dimen/profile_menu_image_scale"
+            android:layout_height="@dimen/profile_menu_image_scale"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/padding_10dp"
+            android:src="@drawable/ic_right" />
+    </RelativeLayout>
+
+
+</LinearLayout>

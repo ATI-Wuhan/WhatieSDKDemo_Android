@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/tv_select_device_change_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:alpha="255"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/selector_photo_from_album"
+            android:text="Change Device Name"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            />
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_below="@id/tv_select_device_change_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+
+        <TextView
+            android:id="@+id/tv_select_unbind_device"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_below="@id/line1"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:alpha="255"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="Unbind Device"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp" />
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_below="@id/tv_select_device_change_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_below="@id/line2"
+            android:id="@+id/tv_select_share_device"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+
+            android:layout_marginRight="10dp"
+            android:alpha="255"
+            android:textColor="@color/colorAccent"
+            android:text="Share Device"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            />
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_below="@id/tv_select_device_change_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_below="@id/line3"
+            android:id="@+id/tv_select_device_delete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_photo_form_camera"
+
+            android:layout_marginRight="10dp"
+            android:alpha="255"
+            android:textColor="@color/pure_red"
+            android:text="Remove Device"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            />
+        <View
+            android:id="@+id/line4"
+            android:layout_width="match_parent"
+            android:layout_below="@id/tv_select_device_change_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:id="@+id/tv_add_countdown"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            android:alpha="255"
+            android:background="@drawable/selector_photo_form_camera"
+            android:textColor="@color/colorAccent"
+            android:text="Count Down"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_below="@id/line3"
+            />
+
+        <TextView
+            android:id="@+id/tv_select_device_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/selector_white_item"
+            android:textColor="@color/feedback"
+            android:text="@string/room_detail_cancel"
+            android:textSize="20sp"
+            android:gravity="center_horizontal|center_vertical"
+            />
+        <View
+            android:layout_height="15dp"
+            android:layout_width="match_parent"/>
+    </LinearLayout>
+
+</RelativeLayout>

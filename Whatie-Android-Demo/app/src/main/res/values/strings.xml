@@ -6,4 +6,19 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="sign_up_tip_string">Please enter your email and password.</string>
+    <string name="log_in_email">Please enter your email.</string>
+    <string name="log_in_change_pwd">Change password</string>
+    <string name="log_in_forget_pwd">Forget password</string>
+    <string name="log_in_password">Please enter your password.</string>
+    <string name="sign_up_password">Please enter your password.</string>
+    <string name="change_password_old_text">Old password</string>
+    <string name="change_password_old">Please enter your old password.</string>
+    <string name="change_password_new_text">New password</string>
+    <string name="change_password_new">Please enter your new password.</string>
+    <string name="profile_update_pwd">Update Login Password</string>
+    <string name="receive_shared_device">Received Shared Devices</string>
+    <string name="profile_feedback">Feedback</string>
+    <string name="profile_log_out">Logout</string>
+
 </resources>

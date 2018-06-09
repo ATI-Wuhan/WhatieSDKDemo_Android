@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <include layout="@layout/layout_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_15dp"
+        android:text="Change your nickname"
+        android:textSize="@dimen/text_14sp"
+        android:textColor="@color/rl_title"/>
+
+    <EditText
+        android:id="@+id/et_change_nick_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rl_height"
+        android:paddingLeft="@dimen/padding_15dp"
+        android:background="@drawable/shape_sign_input"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/padding_20dp">
+        <TextView
+            android:id="@+id/tv_change_nick_name_button"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/padding_50dp"
+            style="@style/ConfirmButton"
+            android:text="@string/device_name_change"/>
+    </RelativeLayout>
+
+</LinearLayout>

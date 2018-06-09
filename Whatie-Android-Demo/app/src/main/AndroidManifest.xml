@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.d9lab.ati.whatie_android_demo">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".application.DemoApplication"
@@ -16,8 +17,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".demonActivity.LoginActivity"
+        android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="appId"
+            android:value="\ 4601134601" />
+        <meta-data
+            android:name="secretKey"
+            android:value="c5cb80b69c5af7e41baded615391bbc0" />
+
+        <activity
+            android:name=".demonActivity.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,26 +34,62 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".demonActivity.DeviceListActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".demonActivity.ProductionListActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".demonActivity.SmartconfigActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".demonActivity.ScanActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".demonActivity.DeviceDetailActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".demonActivity.ShareActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".demonActivity.ChangePwdActivity"
-            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".demonActivity.ProductionListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.SmartconfigActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.ScanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.DeviceDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.ShareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.ChangePwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.SharedDeviceListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.CountdownActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.TimerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.SetTimerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.QRCodeShowActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.SignUpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.ChangeDeviceNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.ChangeNickNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.ForgetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.SetNewPasswordActivity"
+            android:screenOrientation="portrait" />
 
-        <service android:name="org.eclipse.paho.android.service.MqttService"/>
-        <service android:name="com.d9lab.ati.whatiesdk.mqtt.MyMqttService"/>
-        <service android:name="com.d9lab.ati.whatiesdk.tcp.TcpService"/>
-        <service android:name="com.d9lab.ati.whatiesdk.udp.UdpService"/>
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <service android:name="com.d9lab.ati.whatiesdk.mqtt.MyMqttService" />
+        <service android:name="com.d9lab.ati.whatiesdk.tcp.TcpService" />
+        <service android:name="com.d9lab.ati.whatiesdk.udp.UdpService" />
     </application>
 
 </manifest>

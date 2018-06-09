@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_device_detail_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_theme_background"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/layout_device_detail_title"
+            layout="@layout/layout_title" />
+
+        <LinearLayout
+            android:id="@+id/ll_device_detail_bgC"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:layout_gravity="center"
+            android:background="@color/main_theme_blue"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/device_switch_icon_scale"
+                android:layout_height="@dimen/device_switch_icon_scale"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/padding_32dp"
+                android:background="@drawable/ic_socket" />
+
+            <TextView
+                android:id="@+id/tv_device_control_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/padding_20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_14sp" />
+
+            <TextView
+                android:id="@+id/tv_device_control_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="@string/device_detail_on"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_14sp" />
+
+            <!--<TextView-->
+                <!--android:id="@+id/tv_device_control_time"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="12dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_marginBottom="20dp"-->
+                <!--android:text="05:00"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="@dimen/text_48sp" />-->
+
+            <com.d9lab.ati.whatie_android_demo.demonActivity.widget.CountdownTextView
+                android:id="@+id/ctv_device_control_countdown_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginStart="@dimen/padding_15dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/device_detail_text"
+                android:textSize="@dimen/text_16sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:layout_marginBottom="@dimen/padding_1dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/padding_1dp"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_device_detail_countdown"
+                        android:layout_width="@dimen/device_detail_icon_scale"
+                        android:layout_height="@dimen/device_detail_icon_scale"
+                        android:layout_marginTop="@dimen/padding_15dp"
+                        android:src="@drawable/ic_countdown" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="23dp"
+                        android:gravity="center"
+                        android:text="@string/device_countdown"
+                        android:textColor="@color/device_detail_countdown"
+                        android:textSize="@dimen/text_14sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/iv_device_detail_alarm"
+                        android:layout_width="@dimen/device_detail_icon_scale"
+                        android:layout_height="@dimen/device_detail_icon_scale"
+                        android:layout_marginTop="@dimen/padding_15dp"
+                        android:src="@drawable/selector_device_detail_alarm" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="23dp"
+                        android:gravity="center"
+                        android:text="@string/device_alarm"
+                        android:textColor="@color/main_theme_blue"
+                        android:textSize="@dimen/text_14sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/main_theme_background" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:background="@color/white"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:id="@+id/rl_device_detail_switch"
+                    android:layout_width="@dimen/device_detail_button_width"
+                    android:layout_height="@dimen/device_detail_button_height"
+                    android:layout_gravity="center"
+                    android:background="@drawable/shape_confirm_button">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_device_detail_switch"
+                            android:layout_width="@dimen/device_detail_icon_scale_small"
+                            android:layout_height="@dimen/device_detail_icon_scale_small"
+                            android:layout_marginRight="@dimen/padding_10dp"
+                            android:src="@drawable/selector_device_detail_switch" />
+
+                        <TextView
+                            android:id="@+id/tv_device_detail_switch"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

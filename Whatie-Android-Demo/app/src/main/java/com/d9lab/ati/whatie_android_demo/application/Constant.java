@@ -5,6 +5,6 @@ package com.d9lab.ati.whatie_android_demo.application;
  */
 
 public class Constant {
-    public static final String ACCESS_ID = "";
-    public static final String ACCESS_KEY = "";
+    public static final String ACCESS_ID = "4601134601";
+    public static final String ACCESS_KEY = "c5cb80b69c5af7e41baded615391bbc0";
 }

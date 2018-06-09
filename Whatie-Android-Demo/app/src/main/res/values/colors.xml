@@ -1,7 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#F7F7F7</color>
+    <color name="colorPrimaryDark">#F1F2F7</color>
+    <color name="colorAccent">#0099FF</color>
+    <color name="transColorAccent">#A00099FF</color>
+    <color name="transColorPrimaryDark">#A0F1F2F7</color>
+
+    <!--第二版主题色-->
+    <color name="main_theme_blue">#26AFF6</color>
+    <color name="main_theme_background">#EFEFF1</color>
+    <color name="main_text">#999999</color>
+    <color name="main_title">#222222</color>
+    <color name="device_on">#36EC4C</color>
+    <color name="device_off">#999999</color>
+    <color name="new_home_text">#999999</color>
+    <color name="device_detail_text">#707070</color>
+    <color name="no_device_tip">#404040</color>
+    <color name="local_light_gray">#777777</color>
+
+
+
+    <!--设备详情-->
+    <color name="device_detail_countdown">#5DC286</color>
+    <color name="device_detail_black">#3D3D3D</color>
+
+    <!--反馈-->
+    <color name="feedback_photo">#717171</color>
+
+
+    <!--通用颜色-->
+    <color name="background">#FFF0F0F0 </color>
+    <color name="transparent">#00000000</color>
+    <color name="transparent_black">#88000000</color>
+    <color name="transparent_half">#A0000000</color>
+    <color name="transparent_white_half">#A0FFFFFF</color>
+    <color name="transparent_white_30p">#4CFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_half">#A0FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="word_black">#FF101010</color>
+    <color name="frame_bg">#FF4A90E2</color>
+    <color name="submit_btn">#FF0099FF</color>
+    <color name="main_bg">#EFEFF1</color>
+    <color name="feedback">#FF9B9B9B</color>
+    <color name="no_wifi_connected">#3D92F6</color>
+    <color name="sign_input">#FFF5F5F5</color>
+    <color name="text_tip">#FFABABAB</color>
+    <color name="tv_delete_room">#FF5656</color>
+    <color name="edit_room_detail">#FF8F8E94</color>
+    <color name="room_bg_add">#FF999999</color>
+    <color name="pure_red">#FF0000</color>
+    <color name="pure_green">#00FF00</color>
+    <color name="pure_blue">#0000FF</color>
+
+
+    <color name="offline_bg">#f5f5f5</color>
+    <color name="activity_bg">#f0f0f0</color>
+    <color name="personal_logout">#F0183F</color>
+    <color name="trans_logout">#A0F0183F</color>
+
+    <color name="ic_text_color_normal">#c8c8c8</color>
+    <color name="ic_text_color_selected">#0099FF</color>
+
+    <color name="rl_title">#9B9B9B</color>
+    <color name="gray">#666666</color>
+    <color name="navibar_text_color">#cccccc</color>
+
+    <color name="home_gray">#ABABAB</color>
+    <color name="home_edit_gray">#FF030303</color>
+
+
 </resources>
