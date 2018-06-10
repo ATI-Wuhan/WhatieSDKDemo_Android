@@ -130,44 +130,7 @@ public class SharedDeviceListActivity extends BaseActivity {
         srlSharedDeviceList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                EHomeInterface.getINSTANCE().querySharedDevices(mContext, new DevicesCallback() {
-                    @Override
-                    public void onSuccess(Response<BaseListResponse<DeviceVo>> response) {
-                        if (response.body().isSuccess()) {
-                            mDeviceVos.clear();
-                            if (response.body().getList()==null) {
-                                xrvSharedDeviceList.refreshComplete();
-                                srlSharedDeviceList.setRefreshing(false);
-//                                Toast.makeText(mContext, "Device list is empty.", Toast.LENGTH_SHORT).show();
-                                tvShareDeviceEmpty.setVisibility(View.VISIBLE);
-                            } else {
-                                EHomeInterface.getINSTANCE().saveDevices(response.body().getList());
-
-                                mDeviceVos.addAll(response.body().getList());
-                                xrvSharedDeviceList.refreshComplete();
-                                srlSharedDeviceList.setRefreshing(false);
-                                mAdapter.replaceAll(response.body().getList());
-                                tvShareDeviceEmpty.setVisibility(View.GONE);
-                            }
-
-//                            mAdapter.notifyDataSetChanged();
-
-                        } else {
-                            tvShareDeviceEmpty.setVisibility(View.VISIBLE);
-                            xrvSharedDeviceList.refreshComplete();
-                            srlSharedDeviceList.setRefreshing(false);
-                            Toast.makeText(mContext, "Get devices fail.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void onError(Response<BaseListResponse<DeviceVo>> response) {
-                        super.onError(response);
-                        xrvSharedDeviceList.refreshComplete();
-                        srlSharedDeviceList.setRefreshing(false);
-                        Toast.makeText(mContext, "Get devices fail.", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                getDevices();
             }
         });
         ivTitleLeft.setOnClickListener(new View.OnClickListener() {
@@ -342,31 +305,29 @@ public class SharedDeviceListActivity extends BaseActivity {
             @Override
             public void onSuccess(Response<BaseListResponse<DeviceVo>> response) {
                 if (response.body().isSuccess()) {
-                    if (response.body().getList()!=null) {
+                    mDeviceVos.clear();
+                    if (response.body().getList()==null) {
                         xrvSharedDeviceList.refreshComplete();
                         srlSharedDeviceList.setRefreshing(false);
-                        tvShareDeviceEmpty.setVisibility(View.GONE);
-                        EHomeInterface.getINSTANCE().saveSharedDevices(response.body().getList());
-                        mDeviceVos.clear();
-                        mDeviceVos.addAll(response.body().getList());
-                        mAdapter.replaceAll(response.body().getList());
-                        mAdapter.notifyDataSetChanged();
-                    }else {
-                        xrvSharedDeviceList.refreshComplete();
-                        srlSharedDeviceList.setRefreshing(false);
+//                                Toast.makeText(mContext, "Device list is empty.", Toast.LENGTH_SHORT).show();
                         tvShareDeviceEmpty.setVisibility(View.VISIBLE);
-//                        Toast.makeText(mContext, "Device list is empty.", Toast.LENGTH_SHORT).show();
-//                        mAdapter.replaceAll(response.body().getList());
-                        mDeviceVos.clear();
-                        mAdapter.notifyDataSetChanged();
+                    } else {
+                        EHomeInterface.getINSTANCE().saveDevices(response.body().getList());
 
-
+                        mDeviceVos.addAll(response.body().getList());
+                        xrvSharedDeviceList.refreshComplete();
+                        srlSharedDeviceList.setRefreshing(false);
+                        mAdapter.replaceAll(response.body().getList());
+                        tvShareDeviceEmpty.setVisibility(View.GONE);
                     }
+
+//                            mAdapter.notifyDataSetChanged();
+
                 } else {
+                    tvShareDeviceEmpty.setVisibility(View.VISIBLE);
                     xrvSharedDeviceList.refreshComplete();
                     srlSharedDeviceList.setRefreshing(false);
-                    tvShareDeviceEmpty.setVisibility(View.VISIBLE);
-                    Toast.makeText(mContext, "Get shared devices fail.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "Get devices fail.", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -375,7 +336,7 @@ public class SharedDeviceListActivity extends BaseActivity {
                 super.onError(response);
                 xrvSharedDeviceList.refreshComplete();
                 srlSharedDeviceList.setRefreshing(false);
-                Toast.makeText(mContext, "Get shared devices fail.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "Get devices fail.", Toast.LENGTH_SHORT).show();
             }
         });
 
