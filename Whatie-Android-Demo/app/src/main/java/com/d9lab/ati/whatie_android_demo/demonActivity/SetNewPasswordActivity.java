@@ -41,7 +41,6 @@ public class SetNewPasswordActivity extends BaseActivity {
     @Bind(R.id.tv_set_new_password)
     TextView tvSetNewPassword;
 
-    private String md5Pwd;
     private String email;
 
     @Override
@@ -66,8 +65,8 @@ public class SetNewPasswordActivity extends BaseActivity {
 
     }
 
-    public void setNewPassword(final String md5password) {
-        EHomeInterface.getINSTANCE().resetPasswordByEmail(mContext, email, md5password, new BaseCallback() {
+    public void setNewPassword(final String password) {
+        EHomeInterface.getINSTANCE().resetPasswordByEmail(mContext, email, password, new BaseCallback() {
             @Override
             public void onSuccess(Response<BaseResponse> response) {
                 Toast.makeText(mContext, "Set new password success.", Toast.LENGTH_SHORT).show();
@@ -105,8 +104,7 @@ public class SetNewPasswordActivity extends BaseActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        md5Pwd = MD5Utils.encode(password1);
-                        setNewPassword(md5Pwd);
+                        setNewPassword(password1);
                     }
                 }
                 break;
