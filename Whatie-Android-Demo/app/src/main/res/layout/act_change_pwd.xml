@@ -49,6 +49,7 @@
             android:layout_height="@dimen/sign_email_height"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/sign_email_mtop"
+            android:textColor="@color/feedback"
             android:background="@drawable/shape_sign_input"
             android:hint="@string/sign_ev_email"
             android:textSize="@dimen/text_14sp" />

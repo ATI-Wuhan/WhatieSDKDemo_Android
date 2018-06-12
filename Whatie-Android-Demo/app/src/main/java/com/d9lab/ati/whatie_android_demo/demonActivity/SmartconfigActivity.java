@@ -179,7 +179,7 @@ public class SmartconfigActivity extends BaseActivity {
                     String apBssid = mWifiAdmin.getWifiConnectedBssid();
                     new WhatieAsyncTask().execute(apSsid, apBssid, response.body().getValue() + apPassword, "1");
                 } else {
-                    mProgressDialog.setMessage("Config failed.");
+                    mProgressDialog.setMessage(response.body().getMessage());
                     mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                             .setEnabled(true);
                     mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
@@ -190,7 +190,7 @@ public class SmartconfigActivity extends BaseActivity {
             @Override
             public void onError(Response<BaseModelResponse<String>> response) {
                 super.onError(response);
-                mProgressDialog.setMessage("Config failed.");
+                mProgressDialog.setMessage(response.body().getMessage());
                 mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                         .setEnabled(true);
                 mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
@@ -266,7 +266,7 @@ public class SmartconfigActivity extends BaseActivity {
                                     Toast.makeText(mContext, "Device initialize success.", Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(SmartconfigActivity.this, MainActivity.class));
                                 } else {
-                                    Toast.makeText(mContext, "Device initialize fail.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                                 mProgressDialog.dismiss();
                             }
@@ -274,13 +274,14 @@ public class SmartconfigActivity extends BaseActivity {
                             @Override
                             public void onError(Response<BaseResponse> response) {
                                 super.onError(response);
-                                Toast.makeText(mContext, "Device initialize fail.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                                 mProgressDialog.dismiss();
                             }
                         });
             }
         });
         mProgressDialog.setMessage("Config success.");
+        mProgressDialog.setProgress(100);
     }
 
 

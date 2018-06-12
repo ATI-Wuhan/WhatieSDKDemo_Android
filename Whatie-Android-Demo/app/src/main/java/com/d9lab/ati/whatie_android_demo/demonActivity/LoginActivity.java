@@ -115,12 +115,14 @@ public class LoginActivity extends BaseActivity {
                             finish();
                         } else {
                             buttonLogin.setClickable(true);
-                            if(response.body().getMessage()!=null||!response.body().getMessage().isEmpty()){
-                                Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                            }else {
-                                Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
-
+                            if (response.body() != null) {
+                                if (response.body().getMessage() != null || !response.body().getMessage().isEmpty()) {
+                                    Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
+                                }
                             }
+
                         }
 
                     }
@@ -129,12 +131,15 @@ public class LoginActivity extends BaseActivity {
                     public void onError(Response<BaseModelResponse<User>> response) {
                         super.onError(response);
                         buttonLogin.setClickable(true);
-                        if (response.body().getMessage() != null || !response.body().getMessage().isEmpty()) {
-                            Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
+                        if (response.body() != null) {
+                            if (response.body().getMessage() != null || !response.body().getMessage().isEmpty()) {
+                                Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
 
+                            }
                         }
+
                     }
                 });
     }
@@ -153,12 +158,15 @@ public class LoginActivity extends BaseActivity {
                             finish();
                         } else {
                             buttonLogin.setClickable(true);
-                            if (response.body().getMessage() != null || !response.body().getMessage().isEmpty()) {
-                                Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
+                            if (response.body() != null) {
+                                if (response.body().getMessage() != null || !response.body().getMessage().isEmpty()) {
+                                    Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
 
+                                }
                             }
+
                         }
 
                     }
@@ -167,11 +175,12 @@ public class LoginActivity extends BaseActivity {
                     public void onError(Response<BaseModelResponse<User>> response) {
                         super.onError(response);
                         buttonLogin.setClickable(true);
-                        if (response.body().getMessage() != null || !response.body().getMessage().isEmpty()) {
-                            Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
-
+                        if (response.body() != null) {
+                            if (response.body().getMessage() != null || !response.body().getMessage().isEmpty()) {
+                                Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(mContext, "login fail", Toast.LENGTH_SHORT).show();
+                            }
                         }
 
                     }

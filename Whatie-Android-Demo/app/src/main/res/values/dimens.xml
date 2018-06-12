@@ -122,7 +122,7 @@
     <dimen name="padding_below_profile">25dp</dimen>
     <dimen name="profile_menu_height">51dp</dimen>
     <dimen name="profile_menu_padding">5dp</dimen>
-    <dimen name="profile_menu_image_scale">24dp</dimen>
+    <dimen name="profile_menu_image_scale">12dp</dimen>
     <dimen name="profile_menu_text_scale">16sp</dimen>
 
     <!--帮助和反馈-->

@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme.NoActionBar">
         <meta-data
             android:name="appId"
-            android:value="\ 4601134601" />
+            android:value="\4601134601" />
         <meta-data
             android:name="secretKey"
             android:value="c5cb80b69c5af7e41baded615391bbc0" />
@@ -84,6 +84,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".demonActivity.SetNewPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.FeedBackListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.AddFeedBackActivity"
             android:screenOrientation="portrait" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />

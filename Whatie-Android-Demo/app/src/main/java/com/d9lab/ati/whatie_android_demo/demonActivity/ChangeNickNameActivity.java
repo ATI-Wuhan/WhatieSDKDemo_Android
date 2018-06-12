@@ -54,7 +54,7 @@ public class ChangeNickNameActivity extends BaseActivity {
     protected void initViews() {
 
         etNickName.setText((String) SharedPreferenceUtils.get(mContext, "userName", "0"));
-        tvTitle.setText("Change Device Name");
+        tvTitle.setText("Change Nickname");
 
     }
 

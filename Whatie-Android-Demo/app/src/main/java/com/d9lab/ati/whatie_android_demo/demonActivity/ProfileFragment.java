@@ -82,7 +82,7 @@ public class ProfileFragment extends BaseFragment {
     }
 
 
-    @OnClick({R.id.rl_profile_update_pwd, R.id.rl_profile_menu_receive_shared_device, R.id.rl_profile_log_out, R.id.rl_profile_change_nickname})
+    @OnClick({R.id.rl_profile_update_pwd, R.id.rl_profile_menu_receive_shared_device, R.id.rl_profile_log_out, R.id.rl_profile_change_nickname, R.id.rl_profile_feedback})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.rl_profile_update_pwd:
@@ -112,6 +112,9 @@ public class ProfileFragment extends BaseFragment {
                 break;
             case R.id.rl_profile_change_nickname:
                 startActivity(new Intent(getActivity(), ChangeNickNameActivity.class));
+                break;
+            case R.id.rl_profile_feedback:
+                startActivity(new Intent(getActivity(), FeedBackListActivity.class));
                 break;
         }
     }

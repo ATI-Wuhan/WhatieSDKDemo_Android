@@ -326,7 +326,22 @@ public class DeviceDetailActivity extends BaseActivity {
         rlDeviceDetailSwitch.setEnabled(true);
         mHandler.removeCallbacks(mRunnable);
 //        mAdapter.notifyDataSetChanged();
+        removeCountDown();
     }
+
+    private void removeCountDown() {
+        EHomeInterface.getINSTANCE().getTimerClockWithDeviceModel(mContext, deviceVo.getDevice().getId(), new ClockCallback() {
+            @Override
+            public void onSuccess(Response<BaseListResponse<ClockVo>> response) {
+                if (response.body().isSuccess()){
+                    if (response.body().getList()!=null){
+                        cancelCountdownTime(deviceVo.getDevice().getDevId(),state);
+                    }
+                }
+            }
+        });
+    }
+
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 1, sticky = true)
     public void onEventMainThread(MqttReceiveOffEvent event) {
@@ -337,6 +352,7 @@ public class DeviceDetailActivity extends BaseActivity {
         rlDeviceDetailSwitch.setEnabled(true);
         mHandler.removeCallbacks(mRunnable);
         Log.d(TAG, "onEventMainThread: MqttReceiveOffEvent" + event.getIndex());
+        removeCountDown();
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 1, sticky = true)

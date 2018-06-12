@@ -12,6 +12,7 @@ import com.d9lab.ati.whatie_android_demo.application.Constant;
 import com.d9lab.ati.whatiesdk.bean.BaseResponse;
 import com.d9lab.ati.whatiesdk.callback.BaseCallback;
 import com.d9lab.ati.whatiesdk.ehome.EHomeInterface;
+import com.d9lab.ati.whatiesdk.util.SharedPreferenceUtils;
 import com.lzy.okgo.model.Response;
 
 import butterknife.Bind;
@@ -41,6 +42,10 @@ public class ChangePwdActivity extends BaseActivity {
     @Override
     protected void initViews() {
         setTitle("Change Password");
+        etEmail.setText((String)SharedPreferenceUtils.get(mContext,"email","1"));
+        etEmail.setCursorVisible(false);
+        etEmail.setFocusable(false);
+        etEmail.setFocusableInTouchMode(false);
     }
 
     @Override
