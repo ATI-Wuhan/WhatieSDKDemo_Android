@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -72,12 +73,13 @@ public class SmartconfigActivity extends BaseActivity {
     private ProgressDialog mProgressDialog;
     private final Object mLock = new Object();
     private int productType;
-
+    private boolean MQTT_BIND_SUCCESS = false;
 
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() {
         @Override
         public void run() {
+
             mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                     .setEnabled(true);
             mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
@@ -124,6 +126,7 @@ public class SmartconfigActivity extends BaseActivity {
         // check whether the wifi is connected
         boolean isApSsidEmpty = TextUtils.isEmpty(apSsid);
         buttonConfig.setEnabled(!isApSsidEmpty);
+        MQTT_BIND_SUCCESS = false;
     }
 
     @Override
@@ -168,7 +171,7 @@ public class SmartconfigActivity extends BaseActivity {
         mProgressDialog.show();
         mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
                 .setEnabled(false);
-        mProgressDialog.setCancelable(false);
+        mProgressDialog.setCancelable(true);
 
         EHomeInterface.getINSTANCE().getNetToken(mContext, new BaseStringCallback() {
             @Override
@@ -224,6 +227,7 @@ public class SmartconfigActivity extends BaseActivity {
 
         @Override
         protected void onPostExecute(List<IEsptouchResult> result) {
+            Log.d(TAG, "onPostExecute: Config failed.");
             IEsptouchResult firstResult = result.get(0);
             if (!firstResult.isCancelled()) {
                 if (firstResult.isSuc()) {
@@ -234,8 +238,31 @@ public class SmartconfigActivity extends BaseActivity {
                     mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
                             "Confirm");
                     mProgressDialog.setMessage("Config failed.");
+
                 }
             }
+        }
+    }
+
+//    @Override
+//    public void onBackPressed() {
+//
+//
+//
+//
+//    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
+            mProgressDialog = null;
+            if (mEsptouchTask != null) {
+                mEsptouchTask.interrupt();
+            }
+        } else {
+            super.onBackPressed();
         }
     }
 
@@ -245,43 +272,40 @@ public class SmartconfigActivity extends BaseActivity {
                 .setEnabled(true);
         mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
                 "Confirm");
-        mProgressDialog.setMessage("The device has been bound by" + event.getEmail());
+        mProgressDialog.setMessage("The device has been bound by " + event.getEmail());
     }
+
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 1, sticky = true)
     public void onEventMainThread(final MqttBindSuccessEvent event) {
-        mHandler.removeCallbacks(mRunnable);
-        mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE)
-                .setEnabled(true);
-        mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setText(
-                "Confirm");
-        mProgressDialog.getButton(DialogInterface.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EHomeInterface.getINSTANCE().getStarted(mContext, event.getDevId(), event.getName(),
-                        new BaseCallback() {
-                            @Override
-                            public void onSuccess(Response<BaseResponse> response) {
-                                if (response.body().isSuccess()) {
-                                    Toast.makeText(mContext, "Device initialize success.", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(SmartconfigActivity.this, MainActivity.class));
-                                } else {
-                                    Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                                }
-                                mProgressDialog.dismiss();
-                            }
-
-                            @Override
-                            public void onError(Response<BaseResponse> response) {
-                                super.onError(response);
+        Log.d(TAG, "onEventMainThread: MqttBindSuccessEvent");
+        if (!MQTT_BIND_SUCCESS) {
+            mHandler.removeCallbacks(mRunnable);
+            mProgressDialog.dismiss();
+            EHomeInterface.getINSTANCE().getStarted(mContext, event.getDevId(), event.getName(),
+                    new BaseCallback() {
+                        @Override
+                        public void onSuccess(Response<BaseResponse> response) {
+                            if (response.body().isSuccess()) {
+                                Toast.makeText(mContext, "Device initialize success.", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(SmartconfigActivity.this, MainActivity.class));
+                            } else {
                                 Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                                mProgressDialog.dismiss();
                             }
-                        });
-            }
-        });
-        mProgressDialog.setMessage("Config success.");
-        mProgressDialog.setProgress(100);
+                            mProgressDialog.dismiss();
+                        }
+
+                        @Override
+                        public void onError(Response<BaseResponse> response) {
+                            super.onError(response);
+                            Toast.makeText(mContext, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            mProgressDialog.dismiss();
+                        }
+                    });
+//        Toast.makeText(mContext, "Config success.", Toast.LENGTH_SHORT).show();
+            MQTT_BIND_SUCCESS = true;
+        }
+
     }
 
 

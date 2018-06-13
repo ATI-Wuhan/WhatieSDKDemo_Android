@@ -12,7 +12,7 @@
         android:padding="@dimen/padding_15dp"
         android:text="Change your nickname"
         android:textSize="@dimen/text_14sp"
-        android:textColor="@color/rl_title"/>
+        android:textColor="@color/word_black"/>
 
     <EditText
         android:id="@+id/et_change_nick_name"

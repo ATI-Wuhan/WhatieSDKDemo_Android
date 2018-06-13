@@ -12,7 +12,7 @@
         android:padding="@dimen/padding_15dp"
         android:text="@string/get_started_device_name_title"
         android:textSize="@dimen/text_14sp"
-        android:textColor="@color/rl_title"/>
+        android:textColor="@color/word_black"/>
 
     <EditText
         android:id="@+id/et_change_device_name"

@@ -38,7 +38,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/sign_email_top"
             android:text="@string/sign_email"
-            android:textColor="@color/feedback"/>
+            android:textColor="@color/word_black"/>
         <EditText
             android:id="@+id/et_signUp_email"
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/sign_password_mtop"
             android:text="@string/sign_password"
-            android:textColor="@color/feedback" />
+            android:textColor="@color/word_black" />
 
         <RelativeLayout
             android:layout_width="match_parent"

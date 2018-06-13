@@ -24,30 +24,9 @@
             android:layout_centerVertical="true"
             android:layout_alignParentTop="true"
             />
-        <View
-            android:id="@+id/line1"
-            android:layout_width="match_parent"
-            android:layout_below="@id/tv_select_device_change_name"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_height="1dp"/>
 
-        <TextView
-            android:id="@+id/tv_select_unbind_device"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_below="@id/line1"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:alpha="255"
-            android:background="@color/white"
-            android:gravity="center"
-            android:text="Unbind Device"
-            android:textColor="@color/colorAccent"
-            android:textSize="20sp" />
+
+
         <View
             android:id="@+id/line2"
             android:layout_width="match_parent"

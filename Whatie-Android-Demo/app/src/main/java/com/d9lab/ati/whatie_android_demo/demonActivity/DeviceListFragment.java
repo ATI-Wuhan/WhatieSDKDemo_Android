@@ -458,16 +458,7 @@ public class DeviceListFragment extends BaseFragment {
             }
         });
 
-        TextView unbind = changeDeviceView.findViewById(R.id.tv_select_unbind_device);
-        unbind.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changeDeviceWindow.dismiss();
-                EHomeInterface.getINSTANCE().unbind(item.getDevice().getDevId());
-                getDevices();
-                setBackgroundAlpha(1.0f);
-            }
-        });
+
     }
 
     @OnClick({R.id.tv_title_right})

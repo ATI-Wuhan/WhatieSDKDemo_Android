@@ -292,8 +292,7 @@ public class SharedDeviceListActivity extends BaseActivity {
             }
         });
 
-        TextView unbind = changeDeviceView.findViewById(R.id.tv_select_unbind_device);
-        unbind.setVisibility(View.GONE);
+
     }
 //    @OnClick(R.id.fab_my_device)
 //    public void onViewClicked() {

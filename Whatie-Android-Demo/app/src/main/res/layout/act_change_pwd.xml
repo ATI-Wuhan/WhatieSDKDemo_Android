@@ -41,7 +41,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/sign_email_top"
             android:text="@string/sign_email"
-            android:textColor="@color/feedback" />
+            android:textColor="@color/word_black" />
 
         <EditText
             android:id="@+id/et_recover_password_email"
@@ -60,7 +60,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/sign_password_mtop"
             android:text="@string/change_password_old_text"
-            android:textColor="@color/feedback" />
+            android:textColor="@color/word_black" />
 
         <EditText
             android:id="@+id/et_change_pwd_old"
@@ -78,7 +78,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/sign_password_mtop"
             android:text="@string/change_password_new_text"
-            android:textColor="@color/feedback" />
+            android:textColor="@color/word_black" />
 
         <EditText
             android:id="@+id/et_change_pwd_new"
