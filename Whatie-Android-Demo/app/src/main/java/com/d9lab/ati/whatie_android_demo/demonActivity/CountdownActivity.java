@@ -160,7 +160,7 @@ public class CountdownActivity extends BaseActivity {
 
 
     private void setCountdownTime(int duration){
-        boolean willstate = !mDevice.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY);
+        boolean willstate = !Boolean.parseBoolean(mDevice.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY));
         Log.d(TAG, "setCountdownTime: " +mDevice.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY) + willstate);
 
     }

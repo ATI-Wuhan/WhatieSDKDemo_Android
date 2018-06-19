@@ -126,7 +126,7 @@ public class DeviceDetailActivity extends BaseActivity {
         tvTitle.setText(getString(R.string.device_control_title));
         deviceVo = (DeviceVo) getIntent().getSerializableExtra(Code.DEVICE);
         tvDeviceControlName.setText(deviceVo.getDevice().getProduct().getName());
-        state = deviceVo.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY);
+        state = Boolean.parseBoolean(deviceVo.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY));
         toggleState(state);
         getCountdownTime();
 
@@ -254,10 +254,10 @@ public class DeviceDetailActivity extends BaseActivity {
     public void onEventMainThread(MqttReceiveEvent event) {
         switch (event.getProtocol()){
             case Code.DATA_SUBMIT:
-                if(deviceVo.getDevice().getDevId().equals(event.getData().getDevId()) && (state != event.getData().getDps().get("1"))){
+                if(deviceVo.getDevice().getDevId().equals(event.getData().getDevId()) && (state != (boolean)event.getData().getDps().get("1"))){
                     rlDeviceDetailSwitch.setEnabled(true);
                     mHandler.removeCallbacks(mRunnable);
-                    state = event.getData().getDps().get("1");
+                    state = (boolean)event.getData().getDps().get("1");
                     toggleState(state);
                 }
                 break;
@@ -309,9 +309,8 @@ public class DeviceDetailActivity extends BaseActivity {
         mHandler.removeCallbacks(mRunnable);
         mHandler.postDelayed(mRunnable, 800);
         String devId = event.getDeviceTcp().getDevId();
-        boolean state = event.getDeviceTcp().getDps().get("1");
+        boolean state = (boolean)event.getDeviceTcp().getDps().get("1");
         if(devId.equals(deviceVo.getDevice().getDevId()) && (state != this.state)){
-
             this.state = state;
             toggleState(state);
         }
@@ -319,12 +318,13 @@ public class DeviceDetailActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 1, sticky = true)
     public void onEventMainThread(MqttReceiveOnEvent event) {
-        deviceVo.getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, true);
+        deviceVo.getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, String.valueOf(true));
         deviceVo.getDevice().setStatus(Code.DEVICE_STATUS_NORMAL);
         state = true;
         toggleState(true);
         rlDeviceDetailSwitch.setEnabled(true);
         mHandler.removeCallbacks(mRunnable);
+        Log.d(TAG, "onEventMainThread: MqttReceiveOnEvent" + event.getIndex());
 //        mAdapter.notifyDataSetChanged();
         removeCountDown();
     }
@@ -345,7 +345,7 @@ public class DeviceDetailActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 1, sticky = true)
     public void onEventMainThread(MqttReceiveOffEvent event) {
-        deviceVo.getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, false);
+        deviceVo.getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, String.valueOf(false));
         deviceVo.getDevice().setStatus(Code.DEVICE_STATUS_NORMAL);
         state = false;
         toggleState(false);

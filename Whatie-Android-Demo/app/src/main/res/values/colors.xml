@@ -52,6 +52,7 @@
     <color name="pure_red">#FF0000</color>
     <color name="pure_green">#00FF00</color>
     <color name="pure_blue">#0000FF</color>
+    <color name="light_shelter">#55000000</color>
 
 
     <color name="offline_bg">#f5f5f5</color>

@@ -91,6 +91,9 @@
         <activity
             android:name=".demonActivity.AddFeedBackActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".demonActivity.LightDetailActivity"
+            android:screenOrientation="portrait" />
 
         <service android:name="org.eclipse.paho.android.service.MqttService" />
         <service android:name="com.d9lab.ati.whatiesdk.mqtt.MyMqttService" />

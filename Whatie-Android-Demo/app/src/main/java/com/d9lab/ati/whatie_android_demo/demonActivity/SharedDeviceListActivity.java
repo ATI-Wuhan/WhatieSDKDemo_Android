@@ -35,6 +35,8 @@ import com.d9lab.ati.whatiesdk.callback.BaseCallback;
 import com.d9lab.ati.whatiesdk.callback.DevicesCallback;
 import com.d9lab.ati.whatiesdk.ehome.EHome;
 import com.d9lab.ati.whatiesdk.ehome.EHomeInterface;
+import com.d9lab.ati.whatiesdk.event.MqttReceiveLightModeEvent;
+import com.d9lab.ati.whatiesdk.event.MqttReceiveLightModePowerEvent;
 import com.d9lab.ati.whatiesdk.event.MqttReceiveSharedOffEvent;
 import com.d9lab.ati.whatiesdk.event.MqttReceiveSharedOnEvent;
 import com.d9lab.ati.whatiesdk.event.MqttReceiveSharedStatusEvent;
@@ -85,7 +87,7 @@ public class SharedDeviceListActivity extends BaseActivity {
 
     private PopupWindow changeDeviceWindow;
     private View changeDeviceView;
-
+    private ArrayList<DeviceVo> mDevices = new ArrayList<>();
     private BaseRecyclerAdapter<DeviceVo> mAdapter;
     private List<DeviceVo> mDeviceVos = new ArrayList<>();
 
@@ -151,30 +153,67 @@ public class SharedDeviceListActivity extends BaseActivity {
 
             @Override
             public void bindData(RecyclerViewHolder holder, int position, final DeviceVo item) {
+
+                final String productName = item.getProductName();
+
                 holder.setText(R.id.tv_device_name, item.getDevice().getName());
-                holder.setSwitchState(R.id.sw_device, item.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY));
+                Log.d(TAG, "bindData:Boolean      " + Boolean.parseBoolean(item.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY)));
+                Log.d(TAG, "bindData:             " + item.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY));
+                if (Code.PRODUCT_TYPE_RGBLIGHT.equals(productName)) {
+                    if ("0".equals(item.getFunctionValuesMap().get(Code.FUNCTION_MAP_COLOR_LIGHT))) {
+                        Log.d(TAG, "bindData:setSwitchState      false");
+
+                        holder.setSwitchState(R.id.sw_device, false);
+                    } else {
+                        Log.d(TAG, "bindData:setSwitchState      true");
+                        holder.setSwitchState(R.id.sw_device, true);
+                    }
+                } else if (Code.PRODUCT_TYPE_PLUG.equals(productName)) {
+                    holder.setSwitchState(R.id.sw_device, Boolean.parseBoolean(item.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY)));
+                }
 
                 holder.setClickListener(R.id.sw_device, new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (item.getDevice().getStatus().equals(Code.DEVICE_STATUS_NORMAL)) {
-                            LogUtil.log(TAG, item.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY) + "");
-                            if (item.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY)) {
-                                EHomeInterface.getINSTANCE().updateOutletsStatus(item.getDevice().getDevId(), false);
-//                                Toast.makeText(mContext, "This device turn off", Toast.LENGTH_SHORT).show();
 
+                        if (Code.PRODUCT_TYPE_PLUG.equals(productName)) {
+                            Log.d(TAG, "onClick: " + item.getDevice().getStatus());
+                            if (item.getDevice().getStatus().equals(Code.DEVICE_STATUS_NORMAL)) {
+                                if (Boolean.parseBoolean(item.getFunctionValuesMap().get(Code.FUNCTION_MAP_KEY))) {
+                                    EHomeInterface.getINSTANCE().updateOutletsStatus(item.getDevice().getDevId(), false);
+                                } else {
+                                    EHomeInterface.getINSTANCE().updateOutletsStatus(item.getDevice().getDevId(), true);
+                                }
                             } else {
-                                EHomeInterface.getINSTANCE().updateOutletsStatus(item.getDevice().getDevId(), true);
-//                                Toast.makeText(mContext, "This device turn on", Toast.LENGTH_SHORT).show();
-
+                                Toast.makeText(mContext, "This device is not online.", Toast.LENGTH_SHORT).show();
                             }
-                        } else {
-                            Toast.makeText(mContext, "This device is not online.", Toast.LENGTH_SHORT).show();
+                        } else if (Code.PRODUCT_TYPE_RGBLIGHT.equals(productName)) {
+                            if ("0".equals(item.getFunctionValuesMap().get(Code.FUNCTION_MAP_COLOR_LIGHT))) {
+                                Log.d(TAG, "bindData:ColorLight      item.getDevice().getDevId(), true");
+                                sendLightPowerInst(item.getDevice().getDevId(), true);
+                            } else {
+                                Log.d(TAG, "bindData:ColorLight      item.getDevice().getDevId(), false");
+                                sendLightPowerInst(item.getDevice().getDevId(), false);
+                            }
                         }
+
                     }
                 });
 
-
+                holder.setClickListener(R.id.rl_device_item, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (Code.PRODUCT_TYPE_RGBLIGHT.equals(productName)) {
+                            Intent deviceControl = new Intent(mContext, LightDetailActivity.class);
+                            deviceControl.putExtra(Code.DEVICE, item);
+                            startActivity(deviceControl);
+                        } else if (Code.PRODUCT_TYPE_PLUG.equals(productName)) {
+                            Intent deviceControl = new Intent(mContext, DeviceDetailActivity.class);
+                            deviceControl.putExtra(Code.DEVICE, item);
+                            startActivity(deviceControl);
+                        }
+                    }
+                });
                 holder.setLongClickListener(R.id.rl_device_item, new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View v) {
@@ -182,17 +221,14 @@ public class SharedDeviceListActivity extends BaseActivity {
                         return true;
                     }
                 });
-                holder.setClickListener(R.id.rl_device_item, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(SharedDeviceListActivity.this, DeviceDetailActivity.class);
-                        intent.putExtra(Code.DEVICE, item);
-                        startActivity(intent);
-                    }
-                });
             }
         };
         xrvSharedDeviceList.setAdapter(mAdapter);
+
+    }
+    private void sendLightPowerInst(String devId, boolean willState) {
+        EHomeInterface.getINSTANCE().updateLightPower(devId, willState);
+        Log.d(TAG, "bindData:ColorLight      sendLightPowerInst" + willState);
 
     }
     private void setBackgroundAlpha(float f) {
@@ -343,14 +379,14 @@ public class SharedDeviceListActivity extends BaseActivity {
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 2, sticky = true)
     public void onEventMainThread(MqttReceiveSharedOnEvent event) {
-        mDeviceVos.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, true);
+        mDeviceVos.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, String.valueOf(true));
         mDeviceVos.get(event.getIndex()).getDevice().setStatus(Code.DEVICE_STATUS_NORMAL);
         mAdapter.notifyItemChanged(event.getIndex() + 1);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN, priority = 2, sticky = true)
     public void onEventMainThread(MqttReceiveSharedOffEvent event) {
-        mDeviceVos.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, false);
+        mDeviceVos.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_KEY, String.valueOf(false));
         mDeviceVos.get(event.getIndex()).getDevice().setStatus(Code.DEVICE_STATUS_NORMAL);
         mAdapter.notifyItemChanged(event.getIndex() + 1);
     }
@@ -359,5 +395,28 @@ public class SharedDeviceListActivity extends BaseActivity {
     public void onEventMainThread(MqttReceiveSharedStatusEvent event) {
         mDeviceVos.get(event.getIndex()).getDevice().setStatus(event.getStatus());
         mAdapter.notifyItemChanged(event.getIndex() + 1);
+    }
+
+
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 2, sticky = true)
+    public void onEventMainThread(MqttReceiveLightModeEvent event) {
+        EHome.getInstance().getmDeviceVos().get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_COLOR_LIGHT, String.valueOf(event.getlValue()));
+
+        mDeviceVos.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_COLOR_LIGHT, String.valueOf(event.getlValue()));
+        mDevices.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_COLOR_LIGHT, String.valueOf(event.getlValue()));
+        mAdapter.notifyItemChanged(event.getIndex() + 1);
+
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, priority = 2, sticky = true)
+    public void onEventMainThread(MqttReceiveLightModePowerEvent event) {
+        Log.d(TAG, "onEventMainThread: MqttReceiveLightModePowerEvent" + event.getIndex());
+        EHome.getInstance().getmDeviceVos().get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_COLOR_LIGHT, "0");
+        mDeviceVos.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_COLOR_LIGHT, "0");
+        mDevices.get(event.getIndex()).getFunctionValuesMap().put(Code.FUNCTION_MAP_COLOR_LIGHT, "0");
+        mAdapter.notifyItemChanged(event.getIndex() + 1);
+
     }
 }
